@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Elia Schito']
   spec.email = 'elia@schito.me'
 
-  spec.summary = 'TODO: Write a short summary, because RubyGems requires one.'
-  spec.description = 'TODO: Write a longer description or delete this line.'
+  spec.summary = 'The Admin UI for Solidus'
   spec.homepage = 'https://github.com/elia/solidus_admin'
   spec.license = 'BSD-3-Clause'
 

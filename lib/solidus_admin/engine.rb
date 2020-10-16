@@ -7,7 +7,7 @@ module SolidusAdmin
   class Engine < Rails::Engine
     include SolidusSupport::EngineExtensions
 
-    isolate_namespace ::Spree
+    isolate_namespace SolidusAdmin
 
     engine_name 'solidus_admin'
 
