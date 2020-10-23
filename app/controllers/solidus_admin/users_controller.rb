@@ -16,7 +16,7 @@ module SolidusAdmin
     end
 
     def show
-      redirect_to edit_admin_user_path(@user)
+      redirect_to edit_user_path(@user)
     end
 
     def create
@@ -26,7 +26,7 @@ module SolidusAdmin
         set_stock_locations
 
         flash[:success] = t('spree.created_successfully')
-        redirect_to edit_admin_user_url(@user)
+        redirect_to edit_user_url(@user)
       else
         load_roles
         load_stock_locations
@@ -42,7 +42,7 @@ module SolidusAdmin
         set_stock_locations
 
         flash[:success] = t('spree.account_updated')
-        redirect_to edit_admin_user_url(@user)
+        redirect_to edit_user_url(@user)
       else
         load_roles
         load_stock_locations
@@ -94,7 +94,7 @@ module SolidusAdmin
       if @user.generate_spree_api_key!
         flash[:success] = t('spree.admin.api.key_generated')
       end
-      redirect_to edit_admin_user_path(@user)
+      redirect_to edit_user_path(@user)
     end
 
     def clear_api_key
@@ -111,7 +111,7 @@ module SolidusAdmin
       if @user.clear_spree_api_key!
         flash[:success] = t('spree.admin.api.key_cleared')
       end
-      redirect_to edit_admin_user_path(@user)
+      redirect_to edit_user_path(@user)
     end
 
     def model_class

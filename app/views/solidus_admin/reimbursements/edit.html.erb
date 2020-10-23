@@ -9,7 +9,7 @@
 
 <%= render partial: 'spree/shared/error_messages', locals: { target: @reimbursement } %>
 
-<%= form_for [:admin, @order, @reimbursement] do |f| %>
+<%= form_for [@order, @reimbursement] do |f| %>
   <fieldset class='no-border-bottom'>
     <legend align='center'><%= t('spree.items_to_be_reimbursed') %></legend>
     <table class="index reimbursement-return-items">
@@ -100,7 +100,7 @@
       <%= button_to [:perform, :admin, @order, @reimbursement], { class: 'button btn btn-primary', method: 'post' } do %>
         <%= t('spree.reimburse') %>
       <% end %>
-      <%= link_to t('spree.actions.cancel'), url_for([:admin, @order, @reimbursement.customer_return]), class: 'btn btn-default' %>
+      <%= link_to t('spree.actions.cancel'), url_for([@order, @reimbursement.customer_return]), class: 'btn btn-default' %>
     <% end %>
   </div>
 </fieldset>

@@ -1,12 +1,12 @@
 <% admin_breadcrumb(t('spree.settings')) %>
 <% admin_breadcrumb(t('spree.admin.tab.shipping')) %>
 <% if can?(:read, Spree::StockLocation) %>
-  <% admin_breadcrumb(link_to plural_resource_name(Spree::StockLocation), spree.admin_stock_locations_path) %>
+  <% breadcrumb(link_to plural_resource_name(Spree::StockLocation), solidus_admin.stock_locations_path) %>
 <% else %>
   <% admin_breadcrumb(plural_resource_name(Spree::StockLocation)) %>
 <% end %>
 <% if can?(:update, @stock_location) %>
-  <% admin_breadcrumb(link_to(admin_stock_location_display_name(@stock_location), spree.edit_admin_stock_location_path(@stock_location.id))) %>
+  <% breadcrumb(link_to(stock_location_display_name(@stock_location), solidus_admin.edit_stock_location_path(@stock_location.id))) %>
 <% else %>
   <% admin_breadcrumb(admin_stock_location_display_name(@stock_location)) %>
 <% end %>
@@ -19,8 +19,8 @@
 <% content_for :table_filter do %>
   <%=
     search_form_for(
-      [:admin, @search],
-      url: admin_stock_location_stock_movements_path(
+      [@search],
+      url: stock_location_stock_movements_path(
         params[:stock_location_id]
     )) do |f|
   %>

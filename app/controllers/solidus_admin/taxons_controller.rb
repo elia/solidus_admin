@@ -26,7 +26,7 @@ module SolidusAdmin
       else
         flash[:error] = t('spree.errors.messages.could_not_create_taxon')
         respond_with(@taxon) do |format|
-          format.html { redirect_to @taxonomy ? edit_admin_taxonomy_url(@taxonomy) : admin_taxonomies_url }
+          format.html { redirect_to @taxonomy ? edit_taxonomy_url(@taxonomy) : taxonomies_url }
         end
       end
     end
@@ -64,7 +64,7 @@ module SolidusAdmin
       respond_with(@taxon) do |format|
         format.html do
           if @taxon.valid?
-            redirect_to edit_admin_taxonomy_url(@taxonomy)
+            redirect_to edit_taxonomy_url(@taxonomy)
           else
             render :edit
           end
@@ -85,7 +85,7 @@ module SolidusAdmin
     end
 
     def resource_not_found
-      super(flash_class: Taxon, redirect_url: admin_taxonomies_path)
+      super(flash_class: Taxon, redirect_url: taxonomies_path)
     end
   end
 end

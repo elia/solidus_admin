@@ -24,7 +24,7 @@ module SolidusAdmin
       @promotion = Spree::Promotion.accessible_by(current_ability, :show).find(params[:promotion_id])
       if @promotion.apply_automatically
         flash[:error] = t('activerecord.errors.models.spree/promotion_code.attributes.base.disallowed_with_apply_automatically')
-        redirect_to admin_promotion_promotion_codes_url(@promotion)
+        redirect_to promotion_promotion_codes_url(@promotion)
       else
         @promotion_code = @promotion.promotion_codes.build
       end
@@ -36,7 +36,7 @@ module SolidusAdmin
 
       if @promotion_code.save
         flash[:success] = flash_message_for(@promotion_code, :successfully_created)
-        redirect_to admin_promotion_promotion_codes_url(@promotion)
+        redirect_to promotion_promotion_codes_url(@promotion)
       else
         flash.now[:error] = @promotion_code.errors.full_messages.to_sentence
         render_after_create_error

@@ -14,15 +14,15 @@ module SolidusAdmin
 
       if inventory_units.size != inventory_unit_ids.size
         flash[:error] = t('spree.unable_to_find_all_inventory_units')
-        redirect_to admin_order_cancellations_path(@order)
+        redirect_to order_cancellations_path(@order)
       elsif inventory_units.empty?
         flash[:error] = t('spree.no_inventory_selected')
-        redirect_to admin_order_cancellations_path(@order)
+        redirect_to order_cancellations_path(@order)
       else
         @order.cancellations.short_ship(inventory_units, created_by: created_by)
 
         flash[:success] = t('spree.inventory_canceled')
-        redirect_to edit_admin_order_url(@order)
+        redirect_to edit_order_url(@order)
       end
     end
 
@@ -36,7 +36,7 @@ module SolidusAdmin
       @order = Spree::Order.find_by!(number: params[:order_id])
       authorize! action, @order
     rescue ActiveRecord::RecordNotFound
-      resource_not_found(flash_class: Spree::Order, redirect_url: admin_orders_path)
+      resource_not_found(flash_class: Spree::Order, redirect_url: orders_path)
     end
 
     def model_class

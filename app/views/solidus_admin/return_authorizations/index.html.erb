@@ -4,7 +4,7 @@
   <% if @order.shipments.any? &:shipped? %>
     <li>
       <% if can? :manage, Spree::ReturnAuthorization %>
-        <%= link_to t('spree.new_return_authorization'), new_admin_order_return_authorization_url(@order), class: 'btn btn-primary' %>
+        <%= link_to t('spree.new_return_authorization'), new_order_return_authorization_url(@order), class: 'btn btn-primary' %>
       <% end %>
     </li>
   <% end %>

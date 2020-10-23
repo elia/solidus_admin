@@ -3,7 +3,7 @@
 module SolidusAdmin
   class GeneralSettingsController < SolidusAdmin::BaseController
     def edit
-      redirect_to admin_stores_path
+      redirect_to stores_path
     end
   end
 end

@@ -17,7 +17,7 @@ module SolidusAdmin
     private
 
     def location_after_save
-      edit_admin_option_type_url(@option_type)
+      edit_option_type_url(@option_type)
     end
 
     def load_product

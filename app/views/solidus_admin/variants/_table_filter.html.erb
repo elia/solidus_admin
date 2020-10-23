@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :table_filter do %>
-  <%= form_for :variant_search, url: spree.admin_product_variants_path(product), method: :get do |f| %>
+  <%= form_for :variant_search, url: solidus_admin.product_variants_path(product), method: :get do |f| %>
     <div class="col-10">
       <div data-hook="admin_variants_index_search" class="field">
         <%= f.label :variant_search_term, t('spree.variant_search_placeholder') %>
@@ -16,7 +16,7 @@
         <div class="field checkbox">
           <label>
             <%= check_box_tag :deleted, "on", params[:deleted] == "on" %>
-            <%= t('.show_deleted') %>
+            <%= t('spree.admin.variants.table_filter.show_deleted') %>
           </label>
         </div>
       </div>

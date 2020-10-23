@@ -1,5 +1,5 @@
-<% admin_breadcrumb(link_to plural_resource_name(Spree::LegacyUser), spree.admin_users_path) %>
-<% admin_breadcrumb(link_to @user.email, edit_admin_user_url(@user)) %>
+<% breadcrumb(link_to plural_resource_name(Spree::LegacyUser), solidus_admin.users_path) %>
+<% breadcrumb(link_to @user.email, edit_user_url(@user)) %>
 <% admin_breadcrumb(Spree::StoreCredit.model_name.human) %>
 
 
@@ -7,7 +7,7 @@
 <%= render 'solidus_admin/users/tabs', current: :store_credits %>
 <% content_for :page_actions do %>
   <% if can?(:create, @user.store_credits.new) %>
-    <li><%= link_to t('spree.admin.store_credits.add'), new_admin_user_store_credit_path(@user), class: 'button btn btn-primary' %></li>
+    <li><%= link_to t('spree.admin.store_credits.add'), new_user_store_credit_path(@user), class: 'button btn btn-primary' %></li>
   <% end %>
 <% end %>
 
@@ -57,7 +57,7 @@
               </td>
               <td class="actions" data-hook="admin_store_credits_index_row_actions">
                 <% if can?(:show, store_credit) %>
-                  <%= link_to_edit_url admin_user_store_credit_path(@user, store_credit), { no_text: true, class: 'edit' } %>
+                  <%= link_to_edit_url user_store_credit_path(@user, store_credit), { no_text: true, class: 'edit' } %>
                 <% end %>
               </td>
             </tr>

@@ -40,7 +40,7 @@ module SolidusAdmin
         flash[:error] = t('spree.notice_messages.product_not_cloned')
       end
 
-      redirect_to edit_admin_product_url(@new)
+      redirect_to edit_product_url(@new)
     end
 
     private
@@ -65,9 +65,9 @@ module SolidusAdmin
         params[:product][:variant_property_rules_attributes].each do |_index, param_attrs|
           url_params[:ovi] += param_attrs[:option_value_ids]
         end
-        spree.admin_product_product_properties_url(@product, url_params)
+        solidus_admin.product_product_properties_url(@product, url_params)
       else
-        spree.edit_admin_product_url(@product)
+        solidus_admin.edit_product_url(@product)
       end
     end
 
@@ -102,7 +102,7 @@ module SolidusAdmin
     end
 
     def clone_object_url(resource)
-      clone_admin_product_url resource
+      clone_product_url resource
     end
 
     def variant_stock_includes

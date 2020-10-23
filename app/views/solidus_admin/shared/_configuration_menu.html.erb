@@ -5,7 +5,7 @@
   <nav>
     <ul class="tabs" data-hook="admin_configurations_sidebar_menu">
       <% if can?(:edit, Spree::Store) %>
-        <%= settings_tab_item plural_resource_name(Spree::Store), admin_stores_path %>
+        <%= settings_tab_item plural_resource_name(Spree::Store), stores_path %>
       <% end %>
     </ul>
   </nav>

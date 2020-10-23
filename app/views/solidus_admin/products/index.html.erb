@@ -14,7 +14,7 @@
 
 <% content_for :table_filter do %>
   <div data-hook="admin_products_sidebar">
-    <%= search_form_for [:admin, @search] do |f| %>
+    <%= search_form_for [@search] do |f| %>
         <%- locals = {f: f} %>
         <div class="row" data-hook="admin_products_index_search" >
           <div class="col-6">
@@ -77,7 +77,7 @@
             <td class="align-center">
               <%= render 'solidus_admin/shared/image', image: product.gallery.images.first, size: :mini %>
             </td>
-            <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
+            <td><%= link_to product.try(:name), edit_product_path(product) %></td>
             <td class="align-right"><%= product.display_price.to_html %></td>
             <td class="actions" data-hook="admin_products_index_row_actions">
               <%= link_to_edit product, no_text: true, class: 'edit' if can?(:edit, product) && !product.deleted? %>

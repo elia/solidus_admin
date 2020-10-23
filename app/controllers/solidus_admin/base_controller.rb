@@ -59,7 +59,7 @@ module SolidusAdmin
     end
 
     def order_mutex_redirect_path
-      edit_admin_order_path(@order)
+      edit_order_path(@order)
     end
 
     def resource_not_found(flash_class:, redirect_url:)

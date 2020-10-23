@@ -1,11 +1,11 @@
-<% admin_breadcrumb(link_to plural_resource_name(Spree::Promotion), spree.admin_promotions_path) %>
+<% breadcrumb(link_to plural_resource_name(Spree::Promotion), solidus_admin.promotions_path) %>
 <% admin_breadcrumb(plural_resource_name(Spree::PromotionCategory)) %>
 
 
 <% content_for :page_actions do %>
   <% if can?(:create, Spree::PromotionCategory) %>
     <li>
-      <%= link_to t('spree.new_promotion_category'), spree.new_admin_promotion_category_path, class: 'btn btn-primary' %>
+      <%= link_to t('spree.new_promotion_category'), solidus_admin.new_promotion_category_path, class: 'btn btn-primary' %>
     </li>
   <% end %>
 <% end %>

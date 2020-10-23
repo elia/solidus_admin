@@ -11,7 +11,7 @@ module SolidusAdmin
         else
           flash[:error] = t('spree.taxon_attachment_removal_error')
         end
-        redirect_to edit_admin_taxonomy_taxon_path(taxonomy, taxon.id)
+        redirect_to edit_taxonomy_taxon_path(taxonomy, taxon.id)
       end
     end
   end

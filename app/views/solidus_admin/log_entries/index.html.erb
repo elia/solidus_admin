@@ -4,8 +4,8 @@
 <% admin_breadcrumb(plural_resource_name(Spree::LogEntry)) %>
 
 <% content_for :page_actions do %>
-  <li><%= link_to t('spree.logs'), spree.admin_order_payment_log_entries_url(@order, @payment), class: 'btn btn-primary' %></li>
-  <li><%= link_to t('spree.back_to_payment'), spree.admin_order_payment_url(@order, @payment), class: 'btn btn-primary' %></li>
+  <li><%= link_to t('spree.logs'), solidus_admin.order_payment_log_entries_url(@order, @payment), class: 'btn btn-primary' %></li>
+  <li><%= link_to t('spree.back_to_payment'), solidus_admin.order_payment_url(@order, @payment), class: 'btn btn-primary' %></li>
 <% end %>
 
 <%= render 'solidus_admin/payments/log_entries', log_entries: @log_entries %>

@@ -15,7 +15,7 @@ module SolidusAdmin
     def index
       @payments = @order.payments.includes(refunds: :reason)
       @refunds = @payments.flat_map(&:refunds)
-      redirect_to new_admin_order_payment_url(@order) if @payments.empty?
+      redirect_to new_order_payment_url(@order) if @payments.empty?
     end
 
     def new
@@ -40,14 +40,14 @@ module SolidusAdmin
           end
 
           flash[:success] = flash_message_for(@payment, :successfully_created)
-          redirect_to admin_order_payments_path(@order)
+          redirect_to order_payments_path(@order)
         else
           flash[:error] = t('spree.payment_could_not_be_created')
           render :new
         end
       rescue Spree::Core::GatewayError => error
         flash[:error] = error.message.to_s
-        redirect_to new_admin_order_payment_path(@order)
+        redirect_to new_order_payment_path(@order)
       end
     end
 
@@ -64,7 +64,7 @@ module SolidusAdmin
     rescue Spree::Core::GatewayError => ge
       flash[:error] = ge.message.to_s
     ensure
-      redirect_to admin_order_payments_path(@order)
+      redirect_to order_payments_path(@order)
     end
 
     private
@@ -92,7 +92,7 @@ module SolidusAdmin
       authorize! action, @order
       @order
     rescue ActiveRecord::RecordNotFound
-      resource_not_found(flash_class: Spree::Order, redirect_url: admin_orders_path)
+      resource_not_found(flash_class: Spree::Order, redirect_url: orders_path)
     end
 
     def load_payment
@@ -111,13 +111,13 @@ module SolidusAdmin
     def require_bill_address
       if Spree::Config[:order_bill_address_used] && @order.bill_address.nil?
         flash[:notice] = t('spree.fill_in_customer_info')
-        redirect_to edit_admin_order_customer_url(@order)
+        redirect_to edit_order_customer_url(@order)
       end
     end
 
     def insufficient_stock_error
       flash[:error] = t('spree.insufficient_stock_for_order')
-      redirect_to new_admin_order_payment_url(@order)
+      redirect_to new_order_payment_url(@order)
     end
   end
 end

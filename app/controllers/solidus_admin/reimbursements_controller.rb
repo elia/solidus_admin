@@ -35,9 +35,9 @@ module SolidusAdmin
 
     def location_after_save
       if @reimbursement.reimbursed?
-        admin_order_reimbursement_path(parent, @reimbursement)
+        order_reimbursement_path(parent, @reimbursement)
       else
-        edit_admin_order_reimbursement_path(parent, @reimbursement)
+        edit_order_reimbursement_path(parent, @reimbursement)
       end
     end
 
@@ -66,7 +66,7 @@ module SolidusAdmin
 
     def spree_core_gateway_error(error)
       flash[:error] = error.message
-      redirect_to edit_admin_order_reimbursement_path(parent, @reimbursement)
+      redirect_to edit_order_reimbursement_path(parent, @reimbursement)
     end
   end
 end

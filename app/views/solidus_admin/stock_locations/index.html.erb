@@ -17,7 +17,7 @@
 
 <% if @stock_locations.any? %>
   <%= paginate @stock_locations, theme: "solidus_admin" %>
-  <table class="index sortable" id='listing_stock_locations' data-hook data-sortable-link="<%= update_positions_admin_stock_locations_url %>">
+  <table class="index sortable" id='listing_stock_locations' data-hook data-sortable-link="<%= update_positions_stock_locations_url %>">
     <colgroup>
       <col style="width: 10%">
       <col style="width: 30%" />
@@ -36,8 +36,8 @@
     </thead>
     <tbody>
       <% @stock_locations.each do |stock_location|
-           @edit_url = edit_admin_stock_location_path(stock_location)
-           @delete_url = admin_stock_location_path(stock_location)
+           @edit_url = edit_stock_location_path(stock_location)
+           @delete_url = stock_location_path(stock_location)
       %>
         <tr id="<%= spree_dom_id stock_location %>" data-hook="stock_location_row">
           <td>
@@ -53,7 +53,7 @@
           </td>
           <td>
             <% if can?(:read, Spree::StockMovement) %>
-              <%= link_to plural_resource_name(Spree::StockMovement), admin_stock_location_stock_movements_path(stock_location.id) %>
+              <%= link_to plural_resource_name(Spree::StockMovement), stock_location_stock_movements_path(stock_location.id) %>
             <% else %>
               Stock Movements
             <% end %>

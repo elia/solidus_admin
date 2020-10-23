@@ -6,9 +6,9 @@ module SolidusAdmin
 
     def location_after_save
       if @taxonomy.created_at == @taxonomy.updated_at
-        edit_admin_taxonomy_url(@taxonomy)
+        edit_taxonomy_url(@taxonomy)
       else
-        admin_taxonomies_url
+        taxonomies_url
       end
     end
   end

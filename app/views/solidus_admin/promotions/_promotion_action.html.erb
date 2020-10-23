@@ -1,7 +1,7 @@
 <div class="promotion_action promotion-block <%= promotion_action.model_name.element %>" id="<%= dom_id promotion_action %>">
   <h6 class="promotion-title"><%= promotion_action.class.human_attribute_name(:description) %></h6>
   <% if can?(:destroy, promotion_action) %>
-    <%= link_to_with_icon 'trash', '', spree.admin_promotion_promotion_action_path(@promotion, promotion_action), remote: true, method: :delete, class: 'delete' %>
+    <%= link_to_with_icon 'trash', '', solidus_admin.promotion_promotion_action_path(@promotion, promotion_action), remote: true, method: :delete, class: 'delete' %>
   <% end %>
 
   <% param_prefix = "promotion[promotion_actions_attributes][#{promotion_action.id}]" %>

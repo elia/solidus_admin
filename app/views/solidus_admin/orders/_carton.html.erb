@@ -79,7 +79,7 @@
           <td colspan="5">
             <strong><%= t('spree.carton_orders') %>:&nbsp;</strong>
             <% (carton.orders - [order]).each do |order| %>
-              <%= link_to order.number, edit_admin_order_path(order) %>
+              <%= link_to order.number, edit_order_path(order) %>
             <% end %>
           </td>
         </tr>

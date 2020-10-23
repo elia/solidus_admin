@@ -3,7 +3,7 @@
 <% content_for :page_actions do %>
   <% if can?(:admin, Spree.user_class) && can?(:create, Spree.user_class) %>
     <li>
-      <%= link_to t('spree.new_user'), new_admin_user_url, id: 'admin_new_user_link', class: 'btn btn-primary' %>
+      <%= link_to t('spree.new_user'), new_user_url, id: 'admin_new_user_link', class: 'btn btn-primary' %>
     </li>
   <% end %>
 <% end %>
@@ -14,7 +14,7 @@
 
 <% content_for :table_filter do %>
   <div data-hook="admin_users_index_search">
-    <%= search_form_for [:admin, @search], url: admin_users_url do |f| %>
+    <%= search_form_for [@search], url: users_url do |f| %>
       <div class="row">
         <div class="col-xs-12 col-md-5">
           <div class="form-group">
@@ -80,10 +80,10 @@
   <tbody>
     <% @users.each do |user|%>
       <tr id="<%= spree_dom_id user %>" data-hook="admin_users_index_rows">
-        <td class='user_email'><%=link_to user.email, edit_admin_user_url(user) %></td>
+        <td class='user_email'><%=link_to user.email, edit_user_url(user) %></td>
         <td><%= user.spree_roles.map(&:name).to_sentence %></td>
-        <td class="align-center"><%= link_to user.order_count, spree.orders_admin_user_path(user) %></td>
-        <td class="align-center"><%= link_to user.display_lifetime_value, spree.items_admin_user_path(user) %></td>
+        <td class="align-center"><%= link_to user.order_count, solidus_admin.orders_user_path(user) %></td>
+        <td class="align-center"><%= link_to user.display_lifetime_value, solidus_admin.items_user_path(user) %></td>
         <td class="align-center"><%= l user.created_at.to_date %></td>
         <td data-hook="admin_users_index_row_actions" class="actions">
           <% if can?(:edit, user) %>

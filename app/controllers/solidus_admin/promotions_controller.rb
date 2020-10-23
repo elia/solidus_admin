@@ -31,7 +31,7 @@ module SolidusAdmin
     private
 
     def location_after_save
-      spree.edit_admin_promotion_url(@promotion)
+      solidus_admin.edit_promotion_url(@promotion)
     end
 
     def load_data

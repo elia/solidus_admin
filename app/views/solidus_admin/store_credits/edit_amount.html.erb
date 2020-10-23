@@ -1,7 +1,7 @@
-<% admin_breadcrumb(link_to plural_resource_name(Spree::LegacyUser), spree.admin_users_path) %>
-<% admin_breadcrumb(link_to @user.email, edit_admin_user_url(@user)) %>
-<% admin_breadcrumb(link_to plural_resource_name(Spree::StoreCredit), spree.admin_user_store_credits_path(@user)) %>
-<% admin_breadcrumb(link_to Spree::StoreCredit.model_name.human, admin_user_store_credit_path(@user, @store_credit)) %>
+<% breadcrumb(link_to plural_resource_name(Spree::LegacyUser), solidus_admin.users_path) %>
+<% breadcrumb(link_to @user.email, edit_user_url(@user)) %>
+<% breadcrumb(link_to plural_resource_name(Spree::StoreCredit), solidus_admin.user_store_credits_path(@user)) %>
+<% breadcrumb(link_to Spree::StoreCredit.model_name.human, user_store_credit_path(@user, @store_credit)) %>
 <% admin_breadcrumb(t('spree.edit')) %>
 
 
@@ -10,7 +10,7 @@
 <% content_for :page_actions do %>
 <% end %>
 
-<%= form_for [:admin, @user, @store_credit], url: update_amount_admin_user_store_credit_path, method: :put do |f| %>
+<%= form_for [@user, @store_credit], url: update_amount_user_store_credit_path, method: :put do |f| %>
   <fieldset>
     <legend align="center"><%= t('spree.admin.store_credits.edit_amount') %></legend>
     <div data-hook="admin_store_credit_form_fields" class="row">
@@ -27,6 +27,6 @@
       </div>
     </div>
     <%= render 'solidus_admin/shared/edit_resource_links',
-      collection_url: admin_user_store_credits_path(@user, @store_credit) %>
+      collection_url: user_store_credits_path(@user, @store_credit) %>
   </fieldset>
 <% end %>

@@ -45,7 +45,7 @@
               <%= t('spree.product_without_default_price_info',
                     default_currency: Spree::Config.default_pricing_options.currency) %>
               <%= link_to t('spree.product_without_default_price_cta'),
-                          spree.admin_product_prices_url(@product) %>
+                          solidus_admin.product_prices_url(@product) %>
             </span>
           <% end %>
         <% end %>
@@ -118,7 +118,7 @@
             <%= t('spree.info_product_has_multiple_skus', count: @product.variants.count) %>
             <ul class="text_list">
               <% @product.variants.first(5).each do |variant| %>
-                <li><%= link_to variant.sku, spree.edit_admin_product_variant_path(@product, variant) %></li>
+                <li><%= link_to variant.sku, solidus_admin.edit_product_variant_path(@product, variant) %></li>
               <% end %>
             </ul>
             <% if @product.variants.count > 5 %>
@@ -127,7 +127,7 @@
           </span>
           <div class="info-actions">
             <% if can?(:admin, Spree::Variant) %>
-              <%= link_to_with_icon 'th-large', t('spree.manage_variants'), admin_product_variants_url(@product) %>
+              <%= link_to_with_icon 'th-large', t('spree.manage_variants'), product_variants_url(@product) %>
             <% end %>
           </div>
         </div>

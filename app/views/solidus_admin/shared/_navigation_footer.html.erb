@@ -7,7 +7,7 @@
   <ul id="login-nav" class="admin-login-nav">
     <li data-hook="user-account-link">
       <% if can?(:admin, try_spree_current_user) %>
-        <%= link_to spree.edit_admin_user_path(try_spree_current_user) do %>
+        <%= link_to solidus_admin.edit_user_path(try_spree_current_user) do %>
           <i class='fa fa-user'></i>
           <%= try_spree_current_user.email %>
         <% end %>
@@ -30,7 +30,7 @@
 
     <% if spree.respond_to? :root_path %>
       <li data-hook="store-frontend-link">
-        <%= link_to spree.root_path, target: '_blank' do %>
+        <%= link_to solidus_admin.root_path, target: '_blank' do %>
           <i class='fa fa-external-link'></i>
           <%= t('spree.back_to_store') %>
         <% end %>

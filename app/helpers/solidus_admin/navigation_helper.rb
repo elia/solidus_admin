@@ -49,9 +49,9 @@ module SolidusAdmin
       if args.last.is_a?(Hash)
         options = options.merge(args.pop)
       end
-      options[:route] ||= "admin_#{args.first}"
+      options[:route] ||= args.first
 
-      destination_url = options[:url] || spree.send("#{options[:route]}_path")
+      destination_url = options[:url] || solidus_admin.send("#{options[:route]}_path")
       label = t(options[:label], scope: [:spree, :admin, :tab])
 
       css_classes = []
@@ -66,7 +66,7 @@ module SolidusAdmin
       selected = if options[:match_path].is_a? Regexp
         request.fullpath =~ options[:match_path]
       elsif options[:match_path]
-        request.fullpath.starts_with?("#{spree.admin_path}#{options[:match_path]}")
+        request.fullpath.starts_with?("#{solidus_admin.path}#{options[:match_path]}")
       else
         request.fullpath.starts_with?(destination_url) ||
           args.include?(controller.controller_name.to_sym)

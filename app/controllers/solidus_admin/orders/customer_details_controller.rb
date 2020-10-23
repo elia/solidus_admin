@@ -35,7 +35,7 @@ module SolidusAdmin
           end
 
           flash[:success] = t('spree.customer_details_updated')
-          redirect_to edit_admin_order_url(@order)
+          redirect_to edit_order_url(@order)
         else
           render action: :edit
         end
@@ -61,7 +61,7 @@ module SolidusAdmin
       def load_order
         @order = Spree::Order.includes(:adjustments).find_by!(number: params[:order_id])
       rescue ActiveRecord::RecordNotFound
-        resource_not_found(flash_class: Spree::Order, redirect_url: admin_orders_path)
+        resource_not_found(flash_class: Spree::Order, redirect_url: orders_path)
       end
 
       def model_class
@@ -74,7 +74,7 @@ module SolidusAdmin
 
       def insufficient_stock_error
         flash[:error] = t('spree.insufficient_stock_for_order')
-        redirect_to edit_admin_order_customer_url(@order)
+        redirect_to edit_order_customer_url(@order)
       end
     end
   end

@@ -1,6 +1,6 @@
 <%= render partial: 'spree/shared/error_messages', locals: { target: @property } %>
 
-<%= form_for [:admin, @property] do |f| %>
+<%= form_for [@property] do |f| %>
 <fieldset data-hook="new_property">
   <legend align="center"><%= t('spree.new_property') %></legend>
   <%= render partial: 'form', locals: { f: f } %>

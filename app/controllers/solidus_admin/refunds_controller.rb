@@ -27,7 +27,7 @@ module SolidusAdmin
     private
 
     def location_after_save
-      admin_order_payments_path(@payment.order)
+      order_payments_path(@payment.order)
     end
 
     def load_order

@@ -1,20 +1,20 @@
-<% admin_breadcrumb(link_to plural_resource_name(Spree::Product), spree.admin_products_path) %>
-<% admin_breadcrumb(link_to plural_resource_name(Spree::Taxonomy), spree.admin_taxonomies_path) %>
+<% breadcrumb(link_to plural_resource_name(Spree::Product), solidus_admin.products_path) %>
+<% breadcrumb(link_to plural_resource_name(Spree::Taxonomy), solidus_admin.taxonomies_path) %>
 <% admin_breadcrumb(@taxonomy.name) %>
 
 
 <% content_for :page_actions do %>
   <li>
-    <%= link_to t('spree.add_taxon'), spree.admin_taxonomies_path, class: 'add-taxon-button btn btn-primary' %>
+    <%= link_to t('spree.add_taxon'), solidus_admin.taxonomies_path, class: 'add-taxon-button btn btn-primary' %>
   </li>
 <% end %>
 
-<%= form_for [:admin, @taxonomy] do |f| %>
+<%= form_for [@taxonomy] do |f| %>
   <fieldset class="no-border-top">
     <%= render partial: 'form', locals: { f: f } %>
     <div class="filter-actions actions">
       <%= button_tag t('spree.actions.update'), class: 'btn btn-primary' %>
-      <%= link_to t('spree.actions.cancel'), admin_taxonomies_path, class: 'btn btn-default' %>
+      <%= link_to t('spree.actions.cancel'), taxonomies_path, class: 'btn btn-default' %>
     </div>
   </fieldset>
 

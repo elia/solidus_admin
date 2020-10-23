@@ -9,11 +9,11 @@ module SolidusAdmin
     private
 
     def location_after_destroy
-      admin_product_images_url(@product)
+      product_images_url(@product)
     end
 
     def location_after_save
-      admin_product_images_url(@product)
+      product_images_url(@product)
     end
 
     def load_data
@@ -23,7 +23,7 @@ module SolidusAdmin
       end
       @variants.insert(0, [t('spree.all'), @product.master.id])
     rescue ActiveRecord::RecordNotFound
-      resource_not_found(flash_class: Spree::Product, redirect_url: admin_products_path)
+      resource_not_found(flash_class: Spree::Product, redirect_url: products_path)
     end
 
     def set_viewable

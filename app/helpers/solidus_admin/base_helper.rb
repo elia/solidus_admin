@@ -127,7 +127,7 @@ module SolidusAdmin
       name = '' if options[:no_text]
       options[:class] = '' unless options[:class]
       options[:class] += 'no-text with-tip' if options[:no_text]
-      url = form.object.persisted? ? [:admin, form.object] : '#'
+      url = form.object.persisted? ? [form.object] : '#'
       link_to_with_icon('trash', name, url, class: "spree_remove_fields #{options[:class]}", data: { action: 'remove' }, title: t('spree.actions.remove')) +
         form.hidden_field(:_destroy)
     end

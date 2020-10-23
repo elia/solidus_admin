@@ -2,7 +2,7 @@
 
 <% admin_breadcrumb(t('spree.settings')) %>
 <% admin_breadcrumb(t('spree.admin.tab.taxes')) %>
-<% admin_breadcrumb(link_to plural_resource_name(Spree::TaxCategory), spree.admin_tax_categories_path) %>
+<% breadcrumb(link_to plural_resource_name(Spree::TaxCategory), solidus_admin.tax_categories_path) %>
 <% admin_breadcrumb(t('spree.new_tax_category')) %>
 
 
@@ -12,7 +12,7 @@
 
 <%= render partial: 'spree/shared/error_messages', locals: { target: @tax_category } %>
 
-<%= form_for [:admin, @tax_category] do |f| %>
+<%= form_for [@tax_category] do |f| %>
   <fieldset class="no-border-top">
     <%= render partial: 'form', locals: { f: f } %>
     <%= render partial: 'solidus_admin/shared/new_resource_links' %>

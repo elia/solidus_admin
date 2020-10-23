@@ -11,7 +11,7 @@
 
 <%= render partial: 'spree/shared/error_messages', locals: { target: @object } %>
 
-<%= form_for [:admin, @object] do |f| %>
+<%= form_for [@object] do |f| %>
   <fieldset class="no-border-top">
     <%= render partial: 'solidus_admin/shared/named_types/form', locals: { f: f } %>
     <%= render partial: 'solidus_admin/shared/new_resource_links' %>

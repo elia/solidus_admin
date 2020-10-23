@@ -10,7 +10,7 @@ module SolidusAdmin
         session[set_user_language_locale_key] = locale
 
         respond_to do |format|
-          format.json { render json: { locale: locale, location: spree.admin_url } }
+          format.json { render json: { locale: locale, location: solidus_admin.admin_url } }
         end
       else
         respond_to do |format|

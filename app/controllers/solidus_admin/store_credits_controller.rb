@@ -23,7 +23,7 @@ module SolidusAdmin
 
       if @store_credit.save
         flash[:success] = flash_message_for(@store_credit, :successfully_created)
-        redirect_to admin_user_store_credits_path(@user)
+        redirect_to user_store_credits_path(@user)
       else
         load_categories
         flash[:error] = "#{t('spree.admin.store_credits.unable_to_create')} #{@store_credit.errors.full_messages}"
@@ -51,7 +51,7 @@ module SolidusAdmin
       amount = params.require(:store_credit).require(:amount)
       if @store_credit.update_amount(amount, @store_credit_reason, try_spree_current_user)
         flash[:success] = flash_message_for(@store_credit, :successfully_updated)
-        redirect_to admin_user_store_credit_path(@user, @store_credit)
+        redirect_to user_store_credit_path(@user, @store_credit)
       else
         render_edit_page
       end
@@ -60,7 +60,7 @@ module SolidusAdmin
     def invalidate
       @store_credit = @user.store_credits.find(params[:id])
       if @store_credit.invalidate(@store_credit_reason, try_spree_current_user)
-        redirect_to admin_user_store_credit_path(@user, @store_credit)
+        redirect_to user_store_credit_path(@user, @store_credit)
       else
         render_edit_page
       end

@@ -19,7 +19,7 @@ module SolidusAdmin
         flash_message = { error: t('spree.return_authorization_fire_error') }
       end
 
-      redirect_back(fallback_location: admin_order_return_authorizations_path(@order),
+      redirect_back(fallback_location: order_return_authorizations_path(@order),
                     flash: flash_message)
     end
 

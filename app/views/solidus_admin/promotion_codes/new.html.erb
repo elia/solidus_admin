@@ -1,16 +1,16 @@
-<% admin_breadcrumb link_to plural_resource_name(Spree::Promotion), spree.admin_promotions_path %>
-<% admin_breadcrumb link_to(@promotion.name, spree.edit_admin_promotion_path(@promotion)) %>
+<% breadcrumb link_to plural_resource_name(Spree::Promotion), solidus_admin.promotions_path %>
+<% breadcrumb link_to(@promotion.name, solidus_admin.edit_promotion_path(@promotion)) %>
 <% admin_breadcrumb plural_resource_name(Spree::PromotionCode) %>
 
 <% content_for :page_actions do %>
   <li>
-    <%= link_to t('spree.view_promotion_codes_list'), admin_promotion_promotion_codes_path(promotion_id: @promotion.id), class: 'btn btn-primary' %>
+    <%= link_to t('spree.view_promotion_codes_list'), promotion_promotion_codes_path(promotion_id: @promotion.id), class: 'btn btn-primary' %>
 
-    <%= link_to t('spree.download_promotion_codes_list'), admin_promotion_promotion_codes_path(promotion_id: @promotion.id, format: :csv), class: 'btn btn-primary' %>
+    <%= link_to t('spree.download_promotion_codes_list'), promotion_promotion_codes_path(promotion_id: @promotion.id, format: :csv), class: 'btn btn-primary' %>
   </li>
 <% end %>
 
-<%= form_for [:admin, @promotion, @promotion_code], method: :post do |f| %>
+<%= form_for [@promotion, @promotion_code], method: :post do |f| %>
   <fieldset class="no-border-top">
     <%= render partial: 'spree/shared/error_messages', locals: { target: @promotion_code } %>
 
@@ -25,7 +25,7 @@
 
     <div class="form-buttons filter-actions actions" data-hook="buttons">
       <%= f.submit t('spree.actions.create'), class: 'btn btn-primary' %>
-      <%= link_to t('spree.actions.cancel'), admin_promotion_promotion_codes_url(@promotion), class: 'button' %>
+      <%= link_to t('spree.actions.cancel'), promotion_promotion_codes_url(@promotion), class: 'button' %>
     </div>
   </fieldset>
 <% end %>

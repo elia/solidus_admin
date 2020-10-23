@@ -4,7 +4,7 @@ module SolidusAdmin
   class StoresController < SolidusAdmin::ResourceController
     def index
       if Spree::Store.count == 1
-        redirect_to edit_admin_store_path(Spree::Store.first)
+        redirect_to edit_store_path(Spree::Store.first)
       else
         @stores = Spree::Store.all
       end

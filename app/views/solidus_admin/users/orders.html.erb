@@ -1,5 +1,5 @@
-<% admin_breadcrumb(link_to plural_resource_name(Spree::LegacyUser), spree.admin_users_path) %>
-<% admin_breadcrumb(link_to @user.email, edit_admin_user_url(@user)) %>
+<% breadcrumb(link_to plural_resource_name(Spree::LegacyUser), solidus_admin.users_path) %>
+<% breadcrumb(link_to @user.email, edit_user_url(@user)) %>
 <% admin_breadcrumb(t('spree.admin.user.order_history')) %>
 
 
@@ -38,8 +38,8 @@
         <tr data-hook="admin_orders_index_rows">
           <td class="order-completed-at"><%= l(order.completed_at.to_date) if order.completed_at %></td>
           <td class="order-number">
-            <% if can?([:admin, :edit], order) %>
-              <%= link_to order.number, edit_admin_order_path(order) %>
+            <% if can?([:edit], order) %>
+              <%= link_to order.number, edit_order_path(order) %>
             <% else %>
               <%= order.number %>
             <% end %>
@@ -75,7 +75,7 @@
       <% if can? :manage, Spree::Order %>
         <%= render 'solidus_admin/shared/no_objects_found',
                      resource: Spree::Order,
-                     new_resource_url: spree.new_admin_order_path(user_id: @user.id) %>
+                     new_resource_url: solidus_admin.new_order_path(user_id: @user.id) %>
       <% end %>
     </div>
   <% end %>

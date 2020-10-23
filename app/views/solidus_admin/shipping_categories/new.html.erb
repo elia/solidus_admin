@@ -2,7 +2,7 @@
 
 <% admin_breadcrumb(t('spree.settings')) %>
 <% admin_breadcrumb(t('spree.admin.tab.shipping')) %>
-<% admin_breadcrumb(link_to plural_resource_name(Spree::ShippingCategory), spree.admin_shipping_categories_path) %>
+<% breadcrumb(link_to plural_resource_name(Spree::ShippingCategory), solidus_admin.shipping_categories_path) %>
 <% admin_breadcrumb(t('spree.new_shipping_category')) %>
 
 
@@ -11,7 +11,7 @@
 
 <%= render partial: 'spree/shared/error_messages', locals: { target: @shipping_category } %>
 
-<%= form_for [:admin, @shipping_category] do |f| %>
+<%= form_for [@shipping_category] do |f| %>
   <fieldset class="no-border-top">
     <%= render partial: 'form', locals: { f: f } %>
     <%= render partial: 'solidus_admin/shared/new_resource_links' %>

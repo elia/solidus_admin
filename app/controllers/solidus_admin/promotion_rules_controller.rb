@@ -13,7 +13,7 @@ class SolidusAdmin::PromotionRulesController < SolidusAdmin::BaseController
       flash[:success] = t('spree.successfully_created', resource: t('spree.promotion_rule'))
     end
     respond_to do |format|
-      format.html { redirect_to spree.edit_admin_promotion_path(@promotion) }
+      format.html { redirect_to solidus_admin.edit_promotion_path(@promotion) }
       format.js   { render layout: false }
     end
   end
@@ -24,7 +24,7 @@ class SolidusAdmin::PromotionRulesController < SolidusAdmin::BaseController
       flash[:success] = t('spree.successfully_removed', resource: t('spree.promotion_rule'))
     end
     respond_to do |format|
-      format.html { redirect_to spree.edit_admin_promotion_path(@promotion) }
+      format.html { redirect_to solidus_admin.edit_promotion_path(@promotion) }
       format.js   { render layout: false }
     end
   end
@@ -48,7 +48,7 @@ class SolidusAdmin::PromotionRulesController < SolidusAdmin::BaseController
     if !@promotion_rule_type
       flash[:error] = t('spree.invalid_promotion_rule')
       respond_to do |format|
-        format.html { redirect_to spree.edit_admin_promotion_path(@promotion) }
+        format.html { redirect_to solidus_admin.edit_promotion_path(@promotion) }
         format.js   { render layout: false }
       end
     end

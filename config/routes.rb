@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 SolidusAdmin::Engine.routes.draw do
-  root to: '/root#index', as: :admin
+  get '/', to: 'root#index', as: :admin
 
   get '/search/users', to: "search#users", as: :search_users
   get '/search/products', to: "search#products", as: :search_products

@@ -14,7 +14,7 @@
 <% end %>
 
 <% content_for :table_filter do %>
-  <% form_path = @product ? admin_product_stock_path(product: @product) : admin_stock_items_path %>
+  <% form_path = @product ? product_stock_path(product: @product) : stock_items_path %>
   <%= render partial: 'solidus_admin/shared/variant_search', locals: { form_path: form_path, stock_locations: @stock_locations } %>
 <% end %>
 

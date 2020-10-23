@@ -1,5 +1,5 @@
-<% admin_breadcrumb(link_to plural_resource_name(Spree::Order), spree.admin_orders_path) %>
-<% admin_breadcrumb(link_to "##{@order.number}", spree.edit_admin_order_path(@order)) %>
+<% breadcrumb(link_to plural_resource_name(Spree::Order), solidus_admin.orders_path) %>
+<% breadcrumb(link_to "##{@order.number}", solidus_admin.edit_order_path(@order)) %>
 
 
 <% content_for :sidebar_title do %>

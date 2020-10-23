@@ -1,11 +1,11 @@
-<% admin_breadcrumb(link_to plural_resource_name(Spree::Product), spree.admin_products_path) %>
+<% breadcrumb(link_to plural_resource_name(Spree::Product), solidus_admin.products_path) %>
 <% admin_breadcrumb(plural_resource_name(Spree::OptionType)) %>
 
 
 <% content_for :page_actions do %>
   <% if can?(:create, Spree::OptionType) %>
     <li id="new_ot_link">
-      <%= link_to t('spree.new_option_type'), new_admin_option_type_url, remote: true, id: 'new_option_type_link', class: 'btn btn-primary' %>
+      <%= link_to t('spree.new_option_type'), new_option_type_url, remote: true, id: 'new_option_type_link', class: 'btn btn-primary' %>
     </li>
   <% end %>
 <% end %>
@@ -13,7 +13,7 @@
 <div id="new_option_type"></div>
 
 <% if @option_types.any? %>
-<table class="index sortable" id="listing_option_types" data-hook data-sortable-link="<%= update_positions_admin_option_types_url %>">
+<table class="index sortable" id="listing_option_types" data-hook data-sortable-link="<%= update_positions_option_types_url %>">
   <colgroup>
     <col style="width: 10%">
     <col style="width: 35%">

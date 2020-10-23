@@ -2,11 +2,11 @@
   <nav>
     <ul class="tabs" data-hook="admin_settings_taxes_tabs">
       <% if can? :read, Spree::TaxCategory %>
-        <%= settings_tab_item plural_resource_name(Spree::TaxCategory), spree.admin_tax_categories_path %>
+        <%= settings_tab_item plural_resource_name(Spree::TaxCategory), solidus_admin.tax_categories_path %>
       <% end %>
 
       <% if can? :read, Spree::TaxRate %>
-        <%= settings_tab_item plural_resource_name(Spree::TaxRate), spree.admin_tax_rates_path %>
+        <%= settings_tab_item plural_resource_name(Spree::TaxRate), solidus_admin.tax_rates_path %>
       <% end %>
     </ul>
   </nav>

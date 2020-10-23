@@ -99,15 +99,15 @@ module SolidusAdmin
           PRODUCT_TABS,
           'th-large',
           condition: -> { can?(:admin, Spree::Product) },
-          partial: 'spree/admin/shared/product_sub_menu',
+          partial: 'solidus_admin/shared/product_sub_menu',
           position: 1
         ),
         MenuItem.new(
           PROMOTION_TABS,
           'bullhorn',
-          partial: 'spree/admin/shared/promotion_sub_menu',
+          partial: 'solidus_admin/shared/promotion_sub_menu',
           condition: -> { can?(:admin, Spree::Promotion) },
-          url: :admin_promotions_path,
+          url: :promotions_path,
           position: 2
         ),
         MenuItem.new(
@@ -115,7 +115,7 @@ module SolidusAdmin
           'cubes',
           condition: -> { can?(:admin, Spree::StockItem) },
           label: :stock,
-          url: :admin_stock_items_path,
+          url: :stock_items_path,
           match_path: '/stock_items',
           position: 3
         ),
@@ -123,7 +123,7 @@ module SolidusAdmin
           USER_TABS,
           'user',
           condition: -> { Spree.user_class && can?(:admin, Spree.user_class) },
-          url: :admin_users_path,
+          url: :users_path,
           position: 4
         ),
         MenuItem.new(
@@ -144,8 +144,8 @@ module SolidusAdmin
             can?(:show, Spree::Zone)
           },
           label: :settings,
-          partial: 'spree/admin/shared/settings_sub_menu',
-          url: :admin_stores_path,
+          partial: 'solidus_admin/shared/settings_sub_menu',
+          url: :stores_path,
           position: 5
         )
       ]

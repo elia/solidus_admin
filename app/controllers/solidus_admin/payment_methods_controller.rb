@@ -15,7 +15,7 @@ module SolidusAdmin
       if @payment_method.save
         invoke_callbacks(:create, :after)
         flash[:success] = t('spree.successfully_created', resource: t('spree.payment_method'))
-        redirect_to edit_admin_payment_method_path(@payment_method)
+        redirect_to edit_payment_method_path(@payment_method)
       else
         invoke_callbacks(:create, :fails)
         respond_with(@payment_method)
@@ -36,7 +36,7 @@ module SolidusAdmin
       if @payment_method.update(attributes)
         invoke_callbacks(:update, :after)
         flash[:success] = t('spree.successfully_updated', resource: t('spree.payment_method'))
-        redirect_to edit_admin_payment_method_path(@payment_method)
+        redirect_to edit_payment_method_path(@payment_method)
       else
         invoke_callbacks(:update, :fails)
         respond_with(@payment_method)
@@ -73,7 +73,7 @@ module SolidusAdmin
 
       if !@payment_method_type
         flash[:error] = t('spree.invalid_payment_method_type')
-        redirect_to new_admin_payment_method_path
+        redirect_to new_payment_method_path
       end
     end
 

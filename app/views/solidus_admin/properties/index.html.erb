@@ -1,11 +1,11 @@
-<% admin_breadcrumb(link_to plural_resource_name(Spree::Product), spree.admin_products_path) %>
+<% breadcrumb(link_to plural_resource_name(Spree::Product), solidus_admin.products_path) %>
 <% admin_breadcrumb(plural_resource_name(Spree::Property)) %>
 
 
 <% content_for :page_actions do %>
   <% if can?(:create, Spree::Property) %>
     <li id="new_property_link">
-      <%= link_to t('spree.new_property'), new_admin_property_url, remote: true, id: 'new_property_link', class: 'btn btn-primary' %>
+      <%= link_to t('spree.new_property'), new_property_url, remote: true, id: 'new_property_link', class: 'btn btn-primary' %>
     </li>
   <% end %>
 <% end %>
@@ -17,7 +17,7 @@
 <% content_for :table_filter do %>
   <div data-hook="admin_property_sidebar">
 
-    <%= search_form_for [:admin, @search] do |f| %>
+    <%= search_form_for [@search] do |f| %>
 
         <%- locals = {f: f} %>
 

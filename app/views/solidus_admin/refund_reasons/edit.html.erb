@@ -2,7 +2,7 @@
 
 <% admin_breadcrumb(t('spree.settings')) %>
 <% admin_breadcrumb(t('spree.admin.tab.checkout')) %>
-<% admin_breadcrumb(link_to plural_resource_name(Spree::RefundReason), spree.admin_refund_reasons_path) %>
+<% breadcrumb(link_to plural_resource_name(Spree::RefundReason), solidus_admin.refund_reasons_path) %>
 <% admin_breadcrumb(@refund_reason.name) %>
 
 <% content_for :page_actions do %>
@@ -10,7 +10,7 @@
 
 <%= render partial: 'spree/shared/error_messages', locals: { target: @object } %>
 
-<%= form_for [:admin, @refund_reason] do |f| %>
+<%= form_for [@refund_reason] do |f| %>
   <fieldset class="no-border-top">
     <%= render partial: 'solidus_admin/refund_reasons/shared/form', locals: { f: f } %>
     <%= render partial: 'solidus_admin/shared/edit_resource_links' %>

@@ -201,7 +201,7 @@ class SolidusAdmin::ResourceController < SolidusAdmin::BaseController
       nil
     end
   rescue ActiveRecord::RecordNotFound => e
-    resource_not_found(flash_class: e.model.constantize, redirect_url: spree.polymorphic_url([:admin, parent_model_name.pluralize]))
+    resource_not_found(flash_class: e.model.constantize, redirect_url: solidus_admin.polymorphic_url([parent_model_name.pluralize]))
   end
 
   def parent?
@@ -246,17 +246,17 @@ class SolidusAdmin::ResourceController < SolidusAdmin::BaseController
 
   def new_object_url(options = {})
     if parent?
-      spree.new_polymorphic_url([:admin, parent, model_class], options)
+      solidus_admin.new_polymorphic_url([parent, model_class], options)
     else
-      spree.new_polymorphic_url([:admin, model_class], options)
+      solidus_admin.new_polymorphic_url([model_class], options)
     end
   end
 
   def edit_object_url(object, options = {})
     if parent?
-      spree.polymorphic_url([:edit, :admin, parent, object], options)
+      solidus_admin.polymorphic_url([:edit, :admin, parent, object], options)
     else
-      spree.polymorphic_url([:edit, :admin, object], options)
+      solidus_admin.polymorphic_url([:edit, :admin, object], options)
     end
   end
 
@@ -264,17 +264,17 @@ class SolidusAdmin::ResourceController < SolidusAdmin::BaseController
     target = object ? object : @object
 
     if parent?
-      spree.polymorphic_url([:admin, parent, target], options)
+      solidus_admin.polymorphic_url([parent, target], options)
     else
-      spree.polymorphic_url([:admin, target], options)
+      solidus_admin.polymorphic_url([target], options)
     end
   end
 
   def collection_url(options = {})
     if parent?
-      spree.polymorphic_url([:admin, parent, model_class], options)
+      solidus_admin.polymorphic_url([parent, model_class], options)
     else
-      spree.polymorphic_url([:admin, model_class], options)
+      solidus_admin.polymorphic_url([model_class], options)
     end
   end
 

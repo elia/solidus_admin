@@ -2,12 +2,12 @@
 
 <% admin_breadcrumb t('spree.settings') %>
 <% admin_breadcrumb t('spree.admin.tab.checkout') %>
-<% admin_breadcrumb link_to plural_resource_name(Spree::StoreCreditReason), spree.admin_store_credit_reasons_path %>
+<% breadcrumb link_to plural_resource_name(Spree::StoreCreditReason), solidus_admin.store_credit_reasons_path %>
 <% admin_breadcrumb @object.name %>
 
 <%= render partial: 'spree/shared/error_messages', locals: { target: @object } %>
 
-<%= form_for [:admin, @object] do |f| %>
+<%= form_for [@object] do |f| %>
   <fieldset class='no-border-top' data-hook='edit_store_credit_reason'>
     <%= render partial: 'solidus_admin/store_credit_reasons/shared/form', locals: { f: f } %>
     <%= render partial: 'solidus_admin/shared/edit_resource_links' %>
