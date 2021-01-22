@@ -1,6 +1,6 @@
 <%= render 'solidus_admin/shared/general_tabs' %>
 
-<% breadcrumb(link_to(plural_resource_name(Spree::Store), stores_path)) %>
+<% admin_breadcrumb(link_to(plural_resource_name(Spree::Store), stores_path)) %>
 <% admin_breadcrumb(@store.name) %>
 
 <% content_for :page_actions do %>

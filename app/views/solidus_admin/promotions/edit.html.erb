@@ -1,6 +1,6 @@
 <% admin_layout "full-width" %>
 
-<% breadcrumb(link_to plural_resource_name(Spree::Promotion), solidus_admin.promotions_path) %>
+<% admin_breadcrumb(link_to plural_resource_name(Spree::Promotion), solidus_admin.promotions_path) %>
 <% admin_breadcrumb(@promotion.name) %>
 
 <% content_for :page_actions do %>

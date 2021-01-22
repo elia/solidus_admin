@@ -1,5 +1,5 @@
-<% breadcrumb(link_to plural_resource_name(Spree::LegacyUser), solidus_admin.users_path) %>
-<% breadcrumb(link_to @user.email, edit_user_url(@user)) %>
+<% admin_breadcrumb(link_to plural_resource_name(Spree::LegacyUser), solidus_admin.users_path) %>
+<% admin_breadcrumb(link_to @user.email, edit_user_url(@user)) %>
 <% admin_breadcrumb(t('spree.admin.user.order_history')) %>
 
 

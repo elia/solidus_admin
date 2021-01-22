@@ -1,5 +1,5 @@
 <%= render 'solidus_admin/shared/product_tabs', current: 'Prices' %>
-<% breadcrumb(link_to(plural_resource_name(Spree::Price), solidus_admin.product_prices_url(@product))) %>
+<% admin_breadcrumb(link_to(plural_resource_name(Spree::Price), solidus_admin.product_prices_url(@product))) %>
 <% admin_breadcrumb(t('spree.actions.edit')) %>
 
 <%= form_for @price, url: solidus_admin.product_price_path(@product, @price) do |f| %>

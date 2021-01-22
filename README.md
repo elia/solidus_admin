@@ -93,4 +93,4 @@ bundle exec gem release
 
 ## License
 
-Copyright (c) 2020 [name of extension author], released under the New BSD License.
+Copyright (c) 2020 Nebulab SRLs, released under the New BSD License.

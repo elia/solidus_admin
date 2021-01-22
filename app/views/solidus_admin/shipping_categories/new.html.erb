@@ -2,7 +2,7 @@
 
 <% admin_breadcrumb(t('spree.settings')) %>
 <% admin_breadcrumb(t('spree.admin.tab.shipping')) %>
-<% breadcrumb(link_to plural_resource_name(Spree::ShippingCategory), solidus_admin.shipping_categories_path) %>
+<% admin_breadcrumb(link_to plural_resource_name(Spree::ShippingCategory), solidus_admin.shipping_categories_path) %>
 <% admin_breadcrumb(t('spree.new_shipping_category')) %>
 
 

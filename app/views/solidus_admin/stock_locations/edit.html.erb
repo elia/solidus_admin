@@ -2,7 +2,7 @@
 
 <% admin_breadcrumb(t('spree.settings')) %>
 <% admin_breadcrumb(t('spree.admin.tab.shipping')) %>
-<% breadcrumb(link_to plural_resource_name(Spree::StockLocation), solidus_admin.stock_locations_path) %>
+<% admin_breadcrumb(link_to plural_resource_name(Spree::StockLocation), solidus_admin.stock_locations_path) %>
 <% admin_breadcrumb(@stock_location.name) %>
 
 

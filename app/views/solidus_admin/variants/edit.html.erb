@@ -1,6 +1,6 @@
 <%= render partial: 'solidus_admin/shared/product_tabs', locals: { current: 'Variants' } %>
 
-<% breadcrumb(link_to plural_resource_name(Spree::Variant), product_variants_path(@product)) %>
+<% admin_breadcrumb(link_to plural_resource_name(Spree::Variant), product_variants_path(@product)) %>
 <% admin_breadcrumb(@variant.options_text) %>
 
 

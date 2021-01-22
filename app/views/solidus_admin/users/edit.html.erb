@@ -1,4 +1,4 @@
-<% breadcrumb(link_to plural_resource_name(Spree::LegacyUser), solidus_admin.users_path) %>
+<% admin_breadcrumb(link_to plural_resource_name(Spree::LegacyUser), solidus_admin.users_path) %>
 <% admin_breadcrumb(@user.valid? ? @user.email : @user.email_was) %>
 
 <%= render 'solidus_admin/users/sidebar' %>
